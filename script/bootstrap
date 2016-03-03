@@ -17,6 +17,8 @@ function bootstrap {
   source "$shome/vendor/virtualenv/bin/activate"
   pip install .
   popd
+
+  ln -nfs "../vendor/virtualenv/bin/rbt" "$shome/bin/"
 }
 
 bootstrap
