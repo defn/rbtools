@@ -18,6 +18,7 @@ function bootstrap {
   pip install .
   popd
 
+  mkdir -p "$shome/bin"
   ln -nfs "../vendor/virtualenv/bin/rbt" "$shome/bin/"
 }
 
