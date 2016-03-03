@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+function bootstrap {
+  local shome="$(cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"
+  source "$shome/script/profile"
+
+  pkg ensure databases/py27-sqlite3 databases/py-sqlite3
+
+  block compile virtualenv
+
+  local tmp_rbt="$(mktemp -t XXXXXX)"
+  trap "rm -f \"$tmp_rbt\"" EXIT
+  curl -sS -L -o "$tmp_rbt" http://downloads.reviewboard.org/releases/RBTools/0.7/RBTools-0.7.4.tar.gz
+  tar xfz "$tmp_rbt"
+  trap "rm -rf RBTools-0.7.4" EXIT
+  pushd RBTools-0.7.4
+  source "$shome/vendor/virtualenv/bin/activate"
+  pip install .
+  popd
+}
+
+bootstrap
