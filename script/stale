@@ -4,7 +4,7 @@ function main {
   local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
   source "$shome/script/profile"
 
-  if [[ "$(rbt --version 2>&1 | head -1 | awk '{print $2}')" != "0.7.4" ]]; then
+  if [[ "$(rbt --version 2>&1 | head -1 | awk '{print $2}')" == "0.7.4" ]]; then
     return 1
   fi
 
