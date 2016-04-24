@@ -4,7 +4,7 @@ function bootstrap {
   local shome="$(cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"
   source "$shome/script/profile"
 
-  pkg ensure databases/py27-sqlite3 databases/py-sqlite3
+  pkg ensure databases/py35-sqlite3 databases/py-sqlite3
 
   block compile virtualenv
 
