@@ -15,7 +15,7 @@ function bootstrap {
   trap "rm -rf RBTools-0.7.4" EXIT
   pushd RBTools-0.7.4
   source "$shome/vendor/virtualenv/bin/activate"
-  pip install .
+  pip3.5 install .
   popd
 
   mkdir -p "$shome/bin"
